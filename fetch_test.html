@@ -10,9 +10,9 @@
         .then(data => {
           var res=data
           console.log(res);
+          html_response.innerHTML = res
         })
         .catch(error => console.error('Error:',error));
-      html_response.innerHTML = res
     </script>
   </body>
 </html>
