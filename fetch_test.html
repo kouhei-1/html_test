@@ -3,16 +3,16 @@
   <head>
   </head>
   <body>
-    <p id="_response"></p>
+    <p id="html_response"></p>
     <script>
       fetch('https://api.scratch.mit.edu')
         .then(response => response.json())
         .then(data => {
           var res=data
           console.log(res);
-          _response.innerHTML = res
         })
         .catch(error => console.error('Error:',error));
+      html_response.innerHTML = res
     </script>
   </body>
 </html>
