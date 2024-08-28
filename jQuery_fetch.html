@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  </head>
-  <body>
-    <script>
-      $.ajax({
-        type: "GET",
-        url: "https://api.scratch.mit.edu",
-        success: function(response) {
-          console.log(response);
-          const myresponse = response
-          alert(myresponse)
-        },
-        error: function(error) {
-          console.error("失敗しました:", error);
+<head>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  <p id="response_message"></p>
+  <script>
+    $.ajax({
+      type: "GET",
+      url: "https://api.scratch.mit.edu", // Replace with the correct API endpoint (if needed)
+      success: function(response) {
+        console.log(response);
+
+        // Assuming the response is JSON data
+        try {
+          const data = JSON.parse(response);
+          // Access specific data from the response (check API documentation)
+          const username = data.username; // Replace with the appropriate property name
+          $("#response_message").text("Successfully retrieved data! Username: " + username);
+        } catch (error) {
+          console.error("Error parsing response:", error);
+          $("#response_message").text("Error: Could not display data.");
         }
-      });
-    </script>
-  </body>
+      },
+      error: function(error) {
+        console.error("Failed to fetch data:", error);
+        $("#response_message").text("Error: Failed to retrieve data from the API.");
+      }
+    });
+  </script>
+</body>
 </html>
