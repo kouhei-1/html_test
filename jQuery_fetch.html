@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <script>
+      $.ajax({
+        type: "GET",
+        url: "https://api.scratch.mit.edu",
+        success: function(response) {
+          console.log(response);
+          const myresponse = response
+          alert(myresponse)
+        },
+        error: function(error) {
+          console.error("失敗しました:", error);
+        }
+      });
+    </script>
+  </body>
+</html>
