@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
-  <body>
-    <p id="html_response"></p>
-    <script>
-      fetch('https://api.scratch.mit.edu')
-        .then(response => response.json())
-        .then(data => {
-          var res=data
-          console.log(res);
-          html_response.innerHTML = res
-        })
-        .catch(error => console.error('Error:',error));
-    </script>
-  </body>
+<head>
+</head>
+<body>
+  <p id="html_response"></p>
+  <script>
+    fetch('https://api.scratch.mit.edu')
+      .then(response => response.json())
+      .then(data => {
+        // IDが"html_response"の要素を取得
+        const responseElement = document.getElementById('html_response');
+        // 要素の内容をデータに置き換える
+        responseElement.textContent = JSON.stringify(data);
+      })
+      .catch(error => {
+        console.error('エラーが発生しました:', error);
+        // エラーメッセージを表示するなど、エラー処理を追加
+        responseElement.textContent = 'データの取得に失敗しました。';
+      });
+  </script>
+</body>
 </html>
