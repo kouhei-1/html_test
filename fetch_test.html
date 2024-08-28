@@ -3,14 +3,14 @@
   <head>
   </head>
   <body>
-    <p id="response"></p>
+    <p id="_response"></p>
     <script>
       fetch('https://api.scratch.mit.edu')
         .then(response => response.json())
         .then(data => {
           var res=data
           console.log(res);
-          response.innerHTML = res
+          _response.innerHTML = res
         })
         .catch(error => console.error('Error:',error));
     </script>
