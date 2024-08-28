@@ -6,9 +6,12 @@
     <script>
       fetch('https://api.scratch.mit.edu')
         .then(response => response.json())
-        .then(data => var res=(data))
+        .then(data => {
+          var res=data
+          console.log(res);
+          window.alert(res);
+        })
         .catch(error => console.error('Error:',error));
-       alert(res)
     </script>
   </body>
 </html>
