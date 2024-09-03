@@ -1,0 +1,9 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      let username=prompt("通知数を知りたいユーザー名を入力");async function insaneguy(){const a=await fetch(`https://api.scratch.mit.edu/users/${username}/messages/count`);const b=await a.json();alert(b["count"]);}insaneguy();void(0);
+    </script>
+  </body>
+</html>
